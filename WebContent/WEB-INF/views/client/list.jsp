@@ -28,17 +28,17 @@
 						<th>Date et Lieu de Naissance</th>
 						<th>CNI</th>
 						<th>Telephone</th>
-						<th>Résidence</th>
+<!-- 						<th>Résidence</th> -->
 						<th>Actions</th>
 					</tr>
-				<c:forEach items="clients" var="client">
+				<c:forEach items="${clients}" var="client">
 					<tr>
-						<th>client.id</th>
-						<th>client.prenom</th>
-						<th>client.nom</th>
-						<th>client.dateNaiss | client.lieuNaiss</th>
-						<th>client.cni</th>
-						<th>client.tel</th>
+						<td><c:out value="${client.client_id}"/></td>
+						<td><c:out value="${client.prenom}"/></td>
+						<td><c:out value="${client.nom}"/></td>
+						<td><c:out value="${client.dateNaiss}"/> | <c:out value="${client.lieuNaiss}"/></td>
+						<td><c:out value="${client.cni}"/></td>
+						<td><c:out value="${client.tel}"/></td>
 						<th>
 							<i class="fa fa-user"><a href="editClient"></a></i> |
 							<i class="fa fa-user"><a href="deleteClient"></a></i>

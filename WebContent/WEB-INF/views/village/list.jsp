@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ajouter un village</title>
+<title>liste des villages</title>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
@@ -13,43 +14,40 @@
 <body>
 <jsp:include page="../inc/header.jsp"></jsp:include>
 
-<div class="container" style="margin-top: 80px">
-
-<div class="card bg-light">
-	<h4 class="card-title mt-3 text-center">Creer un client</h4>
-	
-	<form method="POST" action="addVillage">
-		<div class="form-group input-group">
-			<div class="input-group-prepend">
-			    <span class="input-group-text"> <i class="fa fa-building"></i> </span>
-			 </div>
-	        <input name="nom" class="form-control" placeholder="nom du village" type="text">
-	        
-	        <div class="input-group-prepend">
-			    <span class="input-group-text"> <i class="fa fa-map-marker-alt"></i> </span>
-			 </div>
-	        <input name="commune" class="form-control" placeholder="commune" type="text">
-	    </div>
-	    <div class="form-group input-group">
-			<div class="input-group-prepend">
-			    <span class="input-group-text"> <i class="fa fa-map-marker-alt"></i> </span>
-			 </div>
-	        <input name="region" class="form-control" placeholder="Region" type="text">
-	    </div>
-	    </div>  
-	                                              
-	    <div class="input-group" style="width: 150px; margin: auto">
-	        <button type="submit" class="btn btn-success btn-block"> Valider </button>
-	        <button type="reset" class="btn btn-danger btn-block"> Annuler </button>
-	    </div>                                                                
-		<div> 
-			<i class="fa fa-plus"></i><a href="addVillage">Ajouter un village</a>
+<div class="container col-md-10">
+		<div class="panel panel-primary">
+			<div class="panel-heading">
+				Liste des villages
+			</div>
+			<div class="panel-body">
+				<table class="table table-striped">
+					<tr>
+						<th>Id</th>
+						<th>village</th>
+						<th>Commune</th>
+						<th>Region</th>
+						<th>Actions</th>
+					</tr>
+				<c:forEach items="${villages}" var="village">
+					<tr>
+						<td><c:out value="${village.village_id}"/></td>
+						<td><c:out value="${village.nom}"/></td>
+						<td><c:out value="${village.commune}"/></td>
+						<td><c:out value="${village.region}"/></td>
+						<th>
+							<i class="fa fa-user"><a href="editVillage"></a></i> |
+							<i class="fa fa-user"><a href="deleteVillage"></a></i>
+						</th>
+					</tr>
+				</c:forEach>
+				</table>
+			</div>
+			<div class="panel-footer">
+				<i class="fa fa-plus"></i><a href="addVillage">Ajouter un village</a>
+			</div>
 		</div>
- 	</form>
 </div>
-
-</div> 
-
+	
 <jsp:include page="../inc/footer.jsp"></jsp:include>
 </body>
 </html>

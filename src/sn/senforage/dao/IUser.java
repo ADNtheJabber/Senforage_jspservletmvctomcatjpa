@@ -3,5 +3,8 @@ package sn.senforage.dao;
 import sn.senforage.domaine.User;
 
 public interface IUser {
-	public User getUser(String username, String password);
+	
+	public boolean verifyUser(String username, String password);
+	
+	public User getUser(String username);
 }

@@ -52,8 +52,7 @@ public class ClientServlet extends HttpServlet {
 		}
 		else if(path.equals("/listClient")) {
 
-			List<Client> clients = metierC.listAll();
-			request.setAttribute("clients", clients);
+			request.setAttribute("clients", metierC.listAll());
 			request.getRequestDispatcher("WEB-INF/views/client/list.jsp").forward(request, response);
 		}
 	}
@@ -64,26 +63,24 @@ public class ClientServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Client c = new Client();
 		
-		//String nom = request.getParameter("nom");
-//		String prenom = request.getParameter("prenom");
-//		String dateNaiss = request.getParameter("dateNaissance");
-//		String lieuNaiss = request.getParameter("lieuNaissance");
-//		String email = request.getParameter("email");
-//		String tel = request.getParameter("tel");
-//		String cni = request.getParameter("cni");
-//		String village_id = request.getParameter("village");
-		
 		c.setNom(request.getParameter("nom"));
 		c.setPrenom(request.getParameter("prenom"));
 		c.setDateNaiss(request.getParameter("dateNaissance"));
 		c.setLieuNaiss(request.getParameter("lieuNaissance"));
 		c.setCni(request.getParameter("cni"));
-		c.setEmail(request.getParameter("email"));
 		c.setCni(request.getParameter("cni"));
 		c.setTel(request.getParameter("tel"));
-		c.setVillage(request.getParameter("village"));
+		//c.setVillage(request.getParameter("village"));
+
+		metierC.add(c);
+		
+		request.setAttribute("clients", metierC.listAll());
+		System.out.println(metierC.listAll());
+		request.getRequestDispatcher("WEB-INF/views/client/list.jsp").forward(request, response);
 
 		
+		//request.getRequestDispatcher(doGet);
+
 	}
 
 }

@@ -10,8 +10,6 @@ public interface IClient {
 	public List<Client> listAll();
 	
 	public Client getClient(Long id);
-	
-	public void update(Client client);
-	
+		
 	public void delete(Long id);
 }

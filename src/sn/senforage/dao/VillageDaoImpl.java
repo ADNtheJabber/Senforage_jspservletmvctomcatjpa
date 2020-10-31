@@ -7,7 +7,6 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 
-import sn.senforage.domaine.Client;
 import sn.senforage.domaine.Village;
 
 public class VillageDaoImpl implements IVillage{
@@ -36,11 +35,12 @@ public class VillageDaoImpl implements IVillage{
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Village> listAll() {
 		try {
-			Query query = em.createQuery("SELECT v FROM village v");
-		    return (List<Village>) query.getResultList();
+			Query query = em.createQuery("SELECT v FROM Village v");
+		    return query.getResultList();
 			
 		} catch (Exception e) {
 			e.printStackTrace();

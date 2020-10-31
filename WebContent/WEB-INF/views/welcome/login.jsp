@@ -25,14 +25,10 @@
                             </div>
                             <div class="form-group">
                                 <label for="password" class="text-info">Mot de passe:</label><br>
-                                <input type="text" name="password" id="password" class="form-control">
+                                <input type="password" name="password" id="password" class="form-control">
                             </div>
                             <div class="form-group">
-<!--                                 <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br> -->
                                 <input type="submit" name="submit" class="btn btn-info btn-md" value="Se connecter">
-                            </div>
-                            <div id="register-link" class="text-right">
-                                <a href="#" class="text-info">S'inscrire</a>
                             </div>
                         </form>
                     </div>

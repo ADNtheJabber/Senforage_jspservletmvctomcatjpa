@@ -72,7 +72,7 @@
 	        <button type="reset" class="btn btn-danger btn-block"> Annuler </button>
 	    </div>                                                                
 		<div> 
-			<a href="">Revenir à la liste des clients</a>
+			<a href="listClient">Revenir à la liste des clients</a>
 		</div>
  	</form>
 </div>

@@ -36,11 +36,12 @@ private EntityManager em;
 	
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Client> listAll() {
 		try {
-			Query query = em.createQuery("SELECT c FROM client c");
-		    return (List<Client>) query.getResultList();
+			Query query = em.createQuery("SELECT c FROM Client c");
+		    return query.getResultList();
 			
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -53,17 +54,6 @@ private EntityManager em;
 		return em.find(Client.class, id);
 	}
 
-	@Override
-	public void update(Client client) {
-		try {
-			em.getTransaction().begin();
-			em.merge(client);
-			em.getTransaction().commit();
-						
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
 
 	@Override
 	public void delete(Long id) {
