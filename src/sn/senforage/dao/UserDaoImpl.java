@@ -21,10 +21,11 @@ public class UserDaoImpl implements IUser{
 	@Override
 	public boolean verifyUser(String username, String password) {
 		try {
-			Query query = em.createQuery("SELECT u FROM User u WHERE (u.username=? AND u.password=?)");
 			
-			query.setParameter(1, username);
-			query.setParameter(2, password);
+			Query query = em.createQuery("SELECT u FROM User u WHERE u.username=:username AND u.password=:password");
+			
+			query.setParameter("username", username);
+			query.setParameter("password", password);
 			
 			if(query.getSingleResult() != null) {
 				return true;
@@ -39,7 +40,17 @@ public class UserDaoImpl implements IUser{
 
 	@Override
 	public User getUser(String username) {
-		return em.find(User.class, username);
+try {
+			
+			Query query = em.createQuery("SELECT u FROM User u WHERE u.username=:username");
+			
+			query.setParameter("username", username);
+				return (User) query.getSingleResult();
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 	
 }

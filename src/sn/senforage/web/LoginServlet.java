@@ -31,6 +31,7 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * @see Servlet#init(ServletConfig)
 	 */
+    @Override
 	public void init(ServletConfig config) throws ServletException {
 		// TODO Auto-generated method stub
 	}
@@ -38,6 +39,7 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 	}
@@ -45,12 +47,11 @@ public class LoginServlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
+	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String path = request.getServletPath();
 		
 		if(path.equals("/login")) {
-			
-			System.out.println("im in login servlet");
 			
 			String username = request.getParameter("username");
 			String password = request.getParameter("password");
@@ -58,25 +59,30 @@ public class LoginServlet extends HttpServlet {
 			boolean isAuth;
 			User user = null;
 			UserDaoImpl logger = new UserDaoImpl();
-			//verify if logger exists
-			if(logger.verifyUser(username, password)) {
-				isAuth = logger.verifyUser(username, password);
 			
+			//verify if logger exists
+			isAuth = logger.verifyUser(username, password);
+			if(isAuth) {
+							
 				user = logger.getUser(username);
+				
 				//init session
 				HttpSession session = request.getSession();
 				
 				session.setAttribute("isAuth", isAuth);
+				session.setAttribute("username", user.getUsername());
+				session.setAttribute("password", user.getPassword());
 				session.setAttribute("matricule", user.getMatricule());
 				session.setAttribute("email", user.getEmail());
 				session.setAttribute("role", user.getRole());
+				
 				//display welcome page
-				
-				request.getRequestDispatcher("WEB-INF/views/welcome/welcome.jsp").forward(request, response);
-				
+				response.sendRedirect("/SenForage/Welcome");
 			}
 			else {
-				request.getRequestDispatcher("WEB-INF/views/welcome/login.jsp").forward(request, response);;
+				
+				response.sendError(1, "error");
+				request.getRequestDispatcher("WEB-INF/views/welcome/login.jsp").forward(request, response);
 			}
 		}
 		

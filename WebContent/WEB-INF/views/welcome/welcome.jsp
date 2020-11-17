@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ page session="true" %>
+ 
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,6 +14,9 @@
 <div class = "banner">
 	<h1>Bienvenue dans senforage !</h1>
 </div>	
+<%= request.getSession().getAttribute("username") %>
+<a href="LogoutServlet">Logout</a>|  
+
 <div class="actions">
 	<h3>Vous souhaitez ?</h3>
 	
