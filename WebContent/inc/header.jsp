@@ -17,5 +17,3 @@
 			<li><a href="addVillage">Ajouter un village</a></li>
 		</ul>
 	</div>
-</body>
-</html>

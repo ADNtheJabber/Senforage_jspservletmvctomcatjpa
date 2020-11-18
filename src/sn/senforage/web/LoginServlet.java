@@ -82,7 +82,7 @@ public class LoginServlet extends HttpServlet {
 			else {
 				
 				response.sendError(1, "error");
-				request.getRequestDispatcher("WEB-INF/views/welcome/login.jsp").forward(request, response);
+				request.getRequestDispatcher("/welcome/login.jsp").forward(request, response);
 			}
 		}
 		

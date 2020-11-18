@@ -19,5 +19,13 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/javax.persistence_2.1.0.v201304241213.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/eclipselink.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-5.1.23-bin.jar"/>
+	<classpathentry kind="lib" path="WebContent/public/images/edituser_105124.png"/>
+	<classpathentry kind="lib" path="WebContent/public/images/enter.png"/>
+	<classpathentry kind="lib" path="WebContent/public/images/img.jpg"/>
+	<classpathentry kind="lib" path="WebContent/public/images/logoSF.png"/>
+	<classpathentry kind="lib" path="WebContent/public/images/passwordiconok.png"/>
+	<classpathentry kind="lib" path="WebContent/public/images/plusicon.png"/>
+	<classpathentry kind="lib" path="WebContent/public/images/trash_bin_icon-icons.com_67981.png"/>
+	<classpathentry kind="lib" path="WebContent/public/images/usericon.png"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

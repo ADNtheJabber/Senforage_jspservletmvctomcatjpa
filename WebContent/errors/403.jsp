@@ -4,12 +4,13 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<link rel="stylesheet" type="text/css" href="public/css/bootstrap.min.css"/>
+<title>Stop</title>
+<link rel="stylesheet" type="text/css" href="../public/css/403.css"/>
 </head>
 <body>
-
-<footer>
-	<h6>Copyright@SenForage2020/adn</h6>
-</footer>
+	
+	<div class="cage"></div>
+	<h1><span>403</span></h1>
+	
 </body>
 </html>
